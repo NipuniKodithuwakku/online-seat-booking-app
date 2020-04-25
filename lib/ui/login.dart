@@ -7,7 +7,14 @@ class Login extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-          title: Text("Sign In"), backgroundColor: Colors.redAccent[900]),
+        title: Text(
+          "Sign In",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.redAccent,
+      ),
       body: Container(
         margin: const EdgeInsets.all(50.5),
         // margin:const EdgeInsets.only(top: 100.5),
@@ -15,9 +22,9 @@ class Login extends StatelessWidget {
           children: <Widget>[
             //add title
             Image.asset(
-              'images/logo.jpg',
-              height: 100,
-              width: 100,
+              'images/logo.png',
+              height: 200,
+              width: 200,
             ),
 
             //add username field
@@ -47,8 +54,16 @@ class Login extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => Signup()),
                   );
                 },
-                child: Text("Sign In", style: TextStyle(color: Colors.black)),
-                color: Colors.redAccent,
+                //make rounded border
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(25.0),
+                  topLeft: Radius.circular(25.0),
+                  bottomLeft: Radius.circular(25.0),
+                  bottomRight: Radius.circular(25.0),
+                )),
+                child: Text("Sign In", style: TextStyle(color: Colors.white)),
+                color: Colors.red,
               ),
             )
           ],

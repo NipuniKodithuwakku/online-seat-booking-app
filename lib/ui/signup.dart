@@ -74,13 +74,16 @@ class Signup extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                Text(
-                  'Sign In',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 16.9,
-                    fontWeight: FontWeight.w400,
+                InkWell(
+                  child: Text(
+                    'Sign In',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 16.9,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
+                  // onTap: () => launch('./login.dart'),
                 ),
               ],
             ),

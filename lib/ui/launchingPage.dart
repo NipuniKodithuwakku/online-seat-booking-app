@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './login.dart';
 
 class LaunchingPage extends StatelessWidget {
   @override
@@ -30,12 +31,38 @@ class LaunchingPage extends StatelessWidget {
             padding: EdgeInsets.all(20.0),
           ),
           Image.asset(
-            'images/logo.jpg',
+            'images/logo.png',
+            
           ),
           Padding(
             padding: EdgeInsets.all(20.0),
           ),
-          RaisedButton(onPressed: null,
+          Container(
+            margin: EdgeInsets.all(20.0),
+            width: 55,
+            height: 50,
+            child: RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Login()),
+                );
+              },
+              //make rounded button
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                topRight: Radius.circular(25.0),
+                topLeft: Radius.circular(25.0),
+                bottomLeft: Radius.circular(25.0),
+                bottomRight: Radius.circular(25.0),
+              )),
+              child: Text('Continue',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                  )),
+              color: Colors.black,
+            ),
           )
         ],
       ),
