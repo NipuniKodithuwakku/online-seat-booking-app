@@ -1,21 +1,23 @@
+import './launchingPage.dart';
 import 'package:flutter/material.dart';
+import './login.dart';
 
-class Signup extends StatelessWidget {
+class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text("Register"), backgroundColor: Colors.redAccent[900]),
+      appBar:
+          AppBar(title: Text("Register"), backgroundColor: Colors.redAccent),
       body: Container(
-        margin: const EdgeInsets.all(50.5),
+        margin: const EdgeInsets.all(40.0),
         // margin:const EdgeInsets.only(top: 100.5),
         child: ListView(
           children: <Widget>[
             //add logo
             Image.asset(
-              'images/logo.jpg',
-              width: 100,
-              height: 100,
+              'images/logo.png',
+              width: 200,
+              height: 200,
             ),
             //add first name
             TextField(
@@ -52,13 +54,18 @@ class Signup extends StatelessWidget {
             Container(
               margin: EdgeInsets.all(10.5),
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LaunchingPage()),
+                  );
+                },
                 child: Text("Sign Up",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 16,
                     )),
-                color: Colors.blue,
+                color: Colors.red,
               ),
             ),
             Padding(padding: EdgeInsets.all(14.0)),
@@ -69,21 +76,38 @@ class Signup extends StatelessWidget {
                 Text(
                   "Already have an account?",
                   style: TextStyle(
-                    color: Colors.grey,
+                    color: Colors.black87,
                     fontSize: 16.9,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                InkWell(
+                // InkWell(
+                //   child: Text(
+                //     'Sign In',
+                //     style: TextStyle(
+                //       color: Colors.red,
+                //       fontSize: 16.9,
+                //       fontWeight: FontWeight.w400,
+                //     ),
+                //   ),
+                //   // onTap: () => launch('./login.dart'),
+                // ),
+
+                FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                    );
+                  },
                   child: Text(
                     'Sign In',
                     style: TextStyle(
                       color: Colors.red,
                       fontSize: 16.9,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  // onTap: () => launch('./login.dart'),
                 ),
               ],
             ),

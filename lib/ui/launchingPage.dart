@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './login.dart';
+import './findBuses.dart';
 
 class LaunchingPage extends StatelessWidget {
   @override
@@ -32,7 +32,6 @@ class LaunchingPage extends StatelessWidget {
           ),
           Image.asset(
             'images/logo.png',
-            
           ),
           Padding(
             padding: EdgeInsets.all(20.0),
@@ -45,7 +44,7 @@ class LaunchingPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Login()),
+                  MaterialPageRoute(builder: (context) => FindBuses()),
                 );
               },
               //make rounded button
@@ -61,7 +60,7 @@ class LaunchingPage extends StatelessWidget {
                     color: Colors.white,
                     fontSize: 20.0,
                   )),
-              color: Colors.black,
+              color: Colors.red,
             ),
           )
         ],

@@ -1,4 +1,5 @@
-import 'package:firebase_authentication/ui/signup.dart';
+import 'package:firebase_authentication/ui/launchingPage.dart';
+import './signup.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -51,7 +52,7 @@ class Login extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Signup()),
+                    MaterialPageRoute(builder: (context) => LaunchingPage()),
                   );
                 },
                 //make rounded border
@@ -65,7 +66,33 @@ class Login extends StatelessWidget {
                 child: Text("Sign In", style: TextStyle(color: Colors.white)),
                 color: Colors.red,
               ),
-            )
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              Text(
+                "Don't have an account?",
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 16.9,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUp()),
+                  );
+                },
+                child: Text(
+                  'Register',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 16.9,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              )
+            ])
           ],
         ),
       ),
