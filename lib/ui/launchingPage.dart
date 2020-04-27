@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './findBuses.dart';
 
 class LaunchingPage extends StatelessWidget {
   @override
@@ -41,12 +40,7 @@ class LaunchingPage extends StatelessWidget {
             width: 55,
             height: 50,
             child: RaisedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => FindBuses()),
-                );
-              },
+              onPressed: null,
               //make rounded button
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
