@@ -1,3 +1,4 @@
+import 'package:firebase_authentication/ui/findBuses.dart';
 import 'package:flutter/material.dart';
 
 class LaunchingPage extends StatelessWidget {
@@ -40,15 +41,21 @@ class LaunchingPage extends StatelessWidget {
             width: 55,
             height: 50,
             child: RaisedButton(
-              onPressed: null,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FindBuses()),
+                );
+              },
               //make rounded button
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                topRight: Radius.circular(25.0),
-                topLeft: Radius.circular(25.0),
-                bottomLeft: Radius.circular(25.0),
-                bottomRight: Radius.circular(25.0),
-              )),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(25.0),
+                  topLeft: Radius.circular(25.0),
+                  bottomLeft: Radius.circular(25.0),
+                  bottomRight: Radius.circular(25.0),
+                ),
+              ),
               child: Text('Continue',
                   style: TextStyle(
                     color: Colors.white,
