@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class FindBuses extends StatefulWidget {
   createState() {
@@ -8,6 +9,22 @@ class FindBuses extends StatefulWidget {
 
 class FindBusesState extends State<FindBuses> {
   String dropDownValue = 'Kandy';
+  //add date picker
+  DateTime selectedDate = DateTime.now();
+
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2020, 5),
+        lastDate: DateTime(2021));
+
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+      });
+  }
+
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
@@ -17,7 +34,7 @@ class FindBusesState extends State<FindBuses> {
         backgroundColor: Colors.redAccent,
       ),
       body: Container(
-        margin: EdgeInsets.all(25.5),
+        margin: EdgeInsets.all(40.5),
         child: ListView(
           children: <Widget>[
             Text(
@@ -99,6 +116,35 @@ class FindBusesState extends State<FindBuses> {
                 fontWeight: FontWeight.bold,
                 fontSize: 16.9,
               ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "${selectedDate.toLocal()}".split(' ')[0],
+              ),
+              // Text("${selectedDate.toLocal()}".split(' ')[0]),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            RaisedButton(
+              onPressed: () => _selectDate(context),
+              child: Text(
+                "Select Your journey date",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              color: Colors.deepPurpleAccent,
+            ),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+            ),
+            RaisedButton(
+              onPressed: () => debugPrint('clicked'),
+              color: Colors.green,
+              child: Text('Find Buses'),
             ),
           ],
         ),
