@@ -1,82 +1,108 @@
 import 'package:flutter/material.dart';
 
-class FindBuses extends StatefulWidget{
-  createState(){
+class FindBuses extends StatefulWidget {
+  createState() {
     return FindBusesState();
   }
 }
 
-class FindBusesState extends State<FindBuses>{
-  Widget build(context){
+class FindBusesState extends State<FindBuses> {
+  String dropDownValue = 'Kandy';
+  Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        title:Text('Find Buses',),
-        backgroundColor:Colors.redAccent,
+        title: Text(
+          'Find Buses',
+        ),
+        backgroundColor: Colors.redAccent,
       ),
       body: Container(
         margin: EdgeInsets.all(25.5),
-        child:ListView(
-        children: <Widget>[
-          Text("FROM",style:TextStyle(
-            color:Colors.black,
-            fontSize:20.0,
-            fontWeight:FontWeight.w500,
-          ),),
-          DropdownButton(
-            value: dropDownValue,
-            icon:Icon(Icons.arrow_drop_down),
-            iconSize:20,
-            // elevation: z-coordinate at which to place the menu when open
-              elevation: 10,
-              hint: Text('Enter your depature station'),
-              isExpanded: true,
-              style: TextStyle(color: Colors.deepPurple),
-              underline: Container(
-                height: 2,
-                width: 100,
-                color: Colors.deepPurpleAccent,
+        child: ListView(
+          children: <Widget>[
+            Text(
+              'FROM',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.9,
               ),
-              items: <String>[
-                'Kandy',
-                'Kurunegala',
-                'Anuradhapura',
-                'Kanduruwela',
-                'Badulla',
-                'Nuwara Eliya',
-                'Bandarawela',
-                'Monaragala',
-                'Hambantota',
-                'Jafna',
-                'Vaunia',
-                'Puttalam',
-                'Negombo',
-                'Ampara',
-                'Welimada',
-                'Tangalle',
-                'Kataragama',
-                'Galle',
-                'Matara',
-                'Chilaw',
-                'baticaloe'
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  child: Text(value),
-                  value: value,
-                );
-              }).toList(),
-              onChanged: (String newValue) {
-                setState(() {
-                  dropDownValue = newValue;
-                });
-              },
             ),
-          )
-
-        ],
+            Padding(
+              padding: EdgeInsets.all(10.0),
+            ),
+            DropdownButton(
+                value: dropDownValue,
+                underline: Container(
+                  height: 2,
+                  width: 100,
+                  color: Colors.deepPurpleAccent,
+                ),
+                isExpanded: true,
+                items: <String>[
+                  'Kandy',
+                  'Jafna',
+                  'Galle',
+                  'Tangalle',
+                  'Kurunegala'
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    child: Text(value),
+                    value: value,
+                  );
+                }).toList(),
+                onChanged: (String newValue) {
+                  setState(() {
+                    dropDownValue = newValue;
+                  });
+                }),
+            Padding(
+              padding: EdgeInsets.all(10.5),
+            ),
+            Text(
+              'TO',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.9,
+              ),
+            ),
+            DropdownButton(
+                value: dropDownValue,
+                underline: Container(
+                  height: 2,
+                  width: 100,
+                  color: Colors.deepPurpleAccent,
+                ),
+                isExpanded: true,
+                items: <String>[
+                  'Kandy',
+                  'Jafna',
+                  'Galle',
+                  'Tangalle',
+                  'Kurunegala'
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    child: Text(value),
+                    value: value,
+                  );
+                }).toList(),
+                onChanged: (String newValue) {
+                  setState(() {
+                    dropDownValue = newValue;
+                  });
+                }),
+            Padding(
+              padding: EdgeInsets.all(10.0),
+            ),
+            Text(
+              'JOURNEY DATE',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.9,
+              ),
+            ),
+          ],
+        ),
       ),
-      )
-      
-
     );
   }
 }
