@@ -1,4 +1,4 @@
-import 'package:firebase_authentication/ui/launchingPage.dart';
+import './launchingPage.dart';
 import './signup.dart';
 import 'package:flutter/material.dart';
 

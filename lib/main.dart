@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import './ui/login.dart';
+import './src/app.dart';
 
 void main() {
   runApp(MaterialApp(
     title: "firebase authentication",
     debugShowCheckedModeBanner: false,
-    home: new Login(),
+    home: new App(),
   ));
 }

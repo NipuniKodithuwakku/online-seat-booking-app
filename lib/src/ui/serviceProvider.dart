@@ -10,6 +10,13 @@ class ServiceProvider extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        backgroundColor: Colors.redAccent,
+      ),
+      body: Container(
+        margin: EdgeInsets.all(25.5),
+        child: ListView(
+          children: <Widget>[],
+        ),
       ),
     );
   }

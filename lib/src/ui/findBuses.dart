@@ -1,3 +1,4 @@
+import 'package:firebase_authentication/src/ui/availableList.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -142,7 +143,12 @@ class FindBusesState extends State<FindBuses> {
               padding: EdgeInsets.all(10.0),
             ),
             RaisedButton(
-              onPressed: () => debugPrint('clicked'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AvailableList()),
+                );
+              },
               color: Colors.green,
               child: Text('Find Buses'),
             ),

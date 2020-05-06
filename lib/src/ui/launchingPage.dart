@@ -1,4 +1,4 @@
-import 'package:firebase_authentication/ui/findBuses.dart';
+import './findBuses.dart';
 import 'package:flutter/material.dart';
 
 class LaunchingPage extends StatelessWidget {
