@@ -1,7 +1,8 @@
 // import './launchingPage.dart';
+import 'package:flutter/material.dart';
+import '../mixins/validationMixin.dart';
 
 import './signup.dart';
-import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
   createState() {
@@ -9,8 +10,10 @@ class Login extends StatefulWidget {
   }
 }
 
-class LoginState extends State<Login> {
+class LoginState extends State<Login> with ValidationMixin {
   final formKey = GlobalKey<FormState>();
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,13 +47,9 @@ class LoginState extends State<Login> {
                         icon: Icon(Icons.email),
                       ),
                       //add email validator
-                      validator: (String value) {
-                        if (!value.contains('@')) {
-                          return 'Please Enter a valid Email';
-                        }
-                      },
+                      validator: validateEmail,
                       onSaved: (String value) {
-                        print(value);
+                        email = value;
                       },
                     ),
                     //passwordField
@@ -61,13 +60,9 @@ class LoginState extends State<Login> {
                         icon: Icon(Icons.lock),
                       ),
                       //password validator
-                      validator: (String value) {
-                        if (value.length < 4) {
-                          return 'password must have at least 4 characters';
-                        }
-                      },
+                      validator: validatePassword,
                       onSaved: (String value) {
-                        print(value);
+                        password = value;
                       },
                       obscureText: true,
                     ),
@@ -81,6 +76,7 @@ class LoginState extends State<Login> {
                       onPressed: () {
                         if (formKey.currentState.validate()) {
                           formKey.currentState.save();
+                          print('$email and $password');
                         }
                         // formKey.currentState.reset();
                       },
