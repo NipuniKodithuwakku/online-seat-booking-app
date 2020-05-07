@@ -40,9 +40,15 @@ class LoginState extends State<Login> {
                       controller: null,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        hintText: "username(email)",
+                        hintText: "you@example.com",
                         icon: Icon(Icons.email),
                       ),
+                      //add email validator
+                      validator: (String value) {
+                        if (!value.contains('@')) {
+                          return 'Please Enter a valid Email';
+                        }
+                      },
                     ),
                     //passwordField
                     TextFormField(
@@ -51,6 +57,12 @@ class LoginState extends State<Login> {
                         hintText: "password",
                         icon: Icon(Icons.lock),
                       ),
+                      //password validator
+                      validator: (String value) {
+                        if (value.length < 4) {
+                          return 'password must have at least 4 characters';
+                        }
+                      },
                       obscureText: true,
                     ),
 
@@ -61,7 +73,8 @@ class LoginState extends State<Login> {
 
                     RaisedButton(
                       onPressed: () {
-                        formKey.currentState.reset();
+                        print(formKey.currentState.validate());
+                        // formKey.currentState.reset();
                       },
                       padding: EdgeInsets.all(10.5),
                       hoverColor: Colors.blueGrey,
