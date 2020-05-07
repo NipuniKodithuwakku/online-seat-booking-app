@@ -49,6 +49,9 @@ class LoginState extends State<Login> {
                           return 'Please Enter a valid Email';
                         }
                       },
+                      onSaved: (String value) {
+                        print(value);
+                      },
                     ),
                     //passwordField
                     TextFormField(
@@ -63,6 +66,9 @@ class LoginState extends State<Login> {
                           return 'password must have at least 4 characters';
                         }
                       },
+                      onSaved: (String value) {
+                        print(value);
+                      },
                       obscureText: true,
                     ),
 
@@ -73,7 +79,9 @@ class LoginState extends State<Login> {
 
                     RaisedButton(
                       onPressed: () {
-                        print(formKey.currentState.validate());
+                        if (formKey.currentState.validate()) {
+                          formKey.currentState.save();
+                        }
                         // formKey.currentState.reset();
                       },
                       padding: EdgeInsets.all(10.5),
