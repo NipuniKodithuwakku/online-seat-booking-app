@@ -6,8 +6,10 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: Text("Register"), backgroundColor: Colors.redAccent),
+      appBar: AppBar(
+        title: Text("Register"),
+        backgroundColor: Colors.redAccent,
+      ),
       body: Container(
         margin: const EdgeInsets.all(40.0),
         // margin:const EdgeInsets.only(top: 100.5),
@@ -19,6 +21,7 @@ class SignUp extends StatelessWidget {
               width: 200,
               height: 200,
             ),
+
             //add first name
             TextField(
               controller: null,
